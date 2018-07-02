@@ -1,0 +1,33 @@
+@startuml
+
+class DragonSlayer{
+    -strategy
+    +changeStrategy()
+    +goToBattle()
+}
+interface DragonSlayingStrategy{
+    +execute()
+}
+class MeleeStrategy{
+    +execute()
+}
+class ProjectileStrategy{
+    +execute()
+}
+class SpellStrategy{
+    +execute()
+}
+
+note "context of strategy, determining\nwhich strategy to use" as n1
+n1 .. DragonSlayer
+note "concrete strategy class" as n2
+n2 .. MeleeStrategy
+n2 .. ProjectileStrategy
+n2 .. SpellStrategy
+
+DragonSlayer o-right-> DragonSlayingStrategy: -strategy
+MeleeStrategy --|> DragonSlayingStrategy
+ProjectileStrategy --|> DragonSlayingStrategy
+SpellStrategy --|> DragonSlayingStrategy
+
+@enduml
