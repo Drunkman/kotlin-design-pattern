@@ -1,0 +1,27 @@
+@startuml
+
+interface Observer{
+    +update()
+}
+
+class Orcs{
+    +update()
+}
+
+class Hobbits{
+    +update()
+}
+
+class Weather{
+    -observers
+    +addObserver()
+    +removeObserver()
+    -notifyObservers()
+}
+
+Orcs --|> Observer
+Hobbits --|> Observer
+
+Weather -left-> Observer: -observers
+
+@enduml
