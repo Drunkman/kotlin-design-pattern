@@ -1,0 +1,18 @@
+@startuml
+
+interface WizardTower{
+    +enter()
+}
+class IvoryTower{
+    +enter()
+}
+class WizardTowerProxy{
+    -wizardTower
+    +enter()
+}
+
+WizardTower <|-- IvoryTower
+WizardTower <|-- WizardTowerProxy
+WizardTowerProxy -right-> IvoryTower: -wizardTower
+
+@enduml

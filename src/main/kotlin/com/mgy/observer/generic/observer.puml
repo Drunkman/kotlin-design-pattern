@@ -28,6 +28,6 @@ Orcs --> Weather
 Hobbits --|> Observer
 Hobbits --> Weather
 Weather --|> Observable
-Observable -left-> Observer: -observers
+Observable "1" -left-> "*" Observer: -observers
 
 @enduml
