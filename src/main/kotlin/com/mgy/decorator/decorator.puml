@@ -1,0 +1,26 @@
+@startuml
+
+interface Troll{
+    +attack()
+    +getAttackPower()
+    +fleeBattle()
+}
+
+class SimpleTroll{
+    +attack()
+    +getAttackPower()
+    +fleeBattle()
+}
+
+class ClubbedTroll{
+    -decorator
+    +attack()
+    +getAttackPower()
+    +fleeBattle()
+}
+
+Troll <|-- SimpleTroll
+Troll <|-- ClubbedTroll
+ClubbedTroll -right-> SimpleTroll: -decorator
+
+@enduml
