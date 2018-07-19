@@ -1,0 +1,22 @@
+@startuml
+
+interface RowingBoat{
+    +row()
+}
+class FishingBoat{
+    +sail()
+}
+class FishingBoatAdapter{
+    -boat
+    +row()
+}
+class Captain{
+    -rowingBoat
+    +row()
+}
+
+RowingBoat <|-- FishingBoatAdapter
+FishingBoat <-right- FishingBoatAdapter: -boat
+RowingBoat <-left- Captain: -rowingBoat
+
+@enduml
