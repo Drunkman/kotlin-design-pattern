@@ -1,0 +1,45 @@
+@startuml
+
+interface Command{
+    +execute(target)
+    +undo()
+    +redo()
+    +toString()
+}
+class ShrinkSpell{
+    -size
+    -target
+    +execute(target)
+    +undo()
+    +redo()
+    +toString()
+}
+class InvisibilitySpell{
+    -target
+    +execute(target)
+    +undo()
+    +redo()
+    +toString()
+}
+
+abstract class Target{
+    +toString()
+    +printStatus()
+}
+class Goblin{
+    +toString()
+}
+
+class Wizard{
+    -undoStack
+    -redoStack
+}
+
+ShrinkSpell -up-|> Command
+InvisibilitySpell -up-|> Command
+Goblin -left-|> Target
+ShrinkSpell --> Target: -target
+InvisibilitySpell --> Target: -target
+Wizard o-left-> Command
+
+@enduml
