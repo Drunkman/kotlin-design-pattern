@@ -1,0 +1,36 @@
+@startuml
+
+interface KingdomFactory {
+    +createArmy()
+    +createCastle()
+    +createKing()
+}
+interface Army
+interface Castle
+interface King
+
+KingdomFactory --> Army
+KingdomFactory --> Castle
+KingdomFactory --> King
+
+ElfKingdomFactory --|> KingdomFactory
+OrcKingdomFactory --|> KingdomFactory
+
+ElfArmy --|> Army
+OrcArmy --|> Army
+
+ElfCastle --|> Castle
+OrcCastle --|> Castle
+
+ElfKing --|> King
+OrcKing --|> King
+
+ElfKingdomFactory ..> ElfArmy
+ElfKingdomFactory ..> ElfCastle
+ElfKingdomFactory ..> ElfKing
+
+OrcKingdomFactory ..> OrcArmy
+OrcKingdomFactory ..> OrcCastle
+OrcKingdomFactory ..> OrcKing
+
+@enduml
