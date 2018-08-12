@@ -1,0 +1,21 @@
+@startuml
+
+interface Blacksmith {
+    +manufactureWeapon()
+}
+
+OrcBlacksmith --|> Blacksmith
+ElfBlacksmith --|> Blacksmith
+
+interface Weapon {
+    +getWeaponType()
+}
+
+OrcWeapon --|> Weapon
+ElfWeapon --|> Weapon
+
+Blacksmith ..> Weapon
+OrcBlacksmith ..> OrcWeapon
+ElfBlacksmith ..> ElfWeapon
+
+@enduml
